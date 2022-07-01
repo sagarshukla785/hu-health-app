@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example.healthcare'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.security:spring-security-web:5.7.1'
+	implementation 'org.springframework.security:spring-security-config:5.7.1'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'com.auth0:java-jwt:4.0.0'
+	implementation 'org.apache.kafka:kafka-clients:3.1.0'
+	implementation 'org.springframework.kafka:spring-kafka:2.8.7'
+	implementation 'org.springframework.kafka:spring-kafka-dist:2.8.5'
+	implementation 'org.json:json:20220320'
+    implementation 'io.57blocks:email-spring-boot-starter:0.2.0'
+    compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
